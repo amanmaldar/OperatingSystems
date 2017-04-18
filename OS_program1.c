@@ -15,7 +15,7 @@ int main()
 		return 1;
 	}
 	else if (pid == 0){//child process 
-		printf("Inside of child. Do something \n")
+		printf("Inside of child. Do something \n");
 		printf("Child process terminates \n");
 		execlp("bin/ls","ls",NULL);
 	}
