@@ -31,6 +31,7 @@ int main()
 		execlp("bin/ls","ls",NULL);
 	}
 	else{//parent process
+	printf("")
 	wait(NULL);
 	printf("Child Completes and returns it pid to parent \n");
 	}
