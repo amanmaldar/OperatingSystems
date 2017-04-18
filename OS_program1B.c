@@ -1,9 +1,9 @@
 /*
-Author - 		Aman Maldar 
-Course - 		EECE 5730 - Operating Systems
+Author - 	Aman Maldar 
+Course - 	EECE 5730 - Operating Systems
 Instructor - 	Dr. M. Geiger
 
-Project -		Program 1, Question B (+5 Points)
+Project -	Program 1, Question B (+5 Points)
 
 Problem Statement -		
 Your program creates multiple child processes without using a loop, printing messages at the start and end of each process as 
@@ -16,6 +16,7 @@ described in part A.
 
 int main()
 {
+	printf("********Project 1 - Question B******** \n");
 	pid_t pid;
 	//fork a child process
 	pid = fork();
