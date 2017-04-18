@@ -4,7 +4,7 @@
 #include<stdio.h>
 #include<unistd.h>
 
-int main
+int main()
 {
 	pid_t pid;
 	//fork a child process
