@@ -25,14 +25,16 @@ int main()
 		fprintf(stderr, "Fork Failed \n");
 		return 1;
 	}
-	else if (pid == 0){//child process 
-		printf("Inside of child. Do something \n");
-		printf("Child process terminates \n");
+	else if (pid == 0){		//child process 
+		printf("Child Message - Inside of child. Do something Interesting. \n");
+		printf("Child Message - Child process terminates. Fork() returns pid of child = %d \n", pid);
 		execlp("bin/ls","ls",NULL);
 	}
-	else{//parent process
+	else{		//parent process
+	printf("Parent Message - Parent waiting for child to terminate \n");
 	wait(NULL);
-	printf("Child Completes and returns it pid to parent \n");
+	printf("Parent Message - Child Completes and returns it pid = %d \n", pid);
 	}
+	
 	return 0;
 }
