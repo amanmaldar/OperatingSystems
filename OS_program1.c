@@ -1,4 +1,14 @@
-//the program for assignement 1 goes here
+/*
+Author - 	Aman Maldar 
+Course - 	EECE 5730 - Operating Systems
+Instructor - 	Dr. M. Geiger
+Project -	Program 1, Question A (10 Points)
+
+Problem Statement -		
+Your  program  creates  a  single  child  process,  printing at  least  one  message from  both  the  parent  and  child  
+process  indicating  the  PIDs  of  those  processes. Your parent process should wait for the child to terminate and print a 
+message once the child has completed.
+*/
 
 #include<sys/types.h>
 #include<stdio.h>
