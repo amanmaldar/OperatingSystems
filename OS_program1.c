@@ -23,5 +23,5 @@ int main()
 	wait(NULL);
 	printf("Child Completes and returns it pid to parent \n");
 	}
-	retun 0;
+	return 0;
 }
