@@ -26,14 +26,14 @@ int main()
 		return 1;
 	}
 	else if (pid == 0){		//child process 
-		printf("Child Message - Inside of child. Do something Interesting. \n");
-		printf("Child Message - Child process terminates. Fork() returns pid of child = %d \n", pid);
+		printf("Child Message  - Inside of child. Do something Interesting. \n");
+		printf("Child Message  - Child process terminates. Fork() returns pid of child = %d \n", pid);
 		execlp("bin/ls","ls",NULL);
 	}
 	else{		//parent process
 	printf("Parent Message - Parent waiting for child to terminate \n");
 	wait(NULL);
-	printf("Parent Message - Child Completes and returns it pid = %d \n", pid);
+	printf("Parent Message - Child Completes and returns its pid = %d to parent\n", pid);
 	}
 	
 	return 0;
