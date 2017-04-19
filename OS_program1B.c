@@ -31,15 +31,15 @@ int main()
 		return 1;
 	}
 	else if (pid == 0){		//child process 
-		printf("Child Message  - Entered Child Process. Do something Interesting. \n");
-		printf("Child Message  - Child Terminates. Fork() returns pid of child = %d to Parent \n", pid);
+		printf("Child Message 1 - Entered Child Process. Do something Interesting. \n");
+		printf("Child Message 2 - Child Terminates. Fork() returns pid of child = %d to Parent \n", getpid());
 		execlp("bin/ls","ls",NULL);
 	}
 	else{		//parent process
-		printf("Parent Message - Entered Parent Process, Parent waiting for child to terminate \n");
+		printf("Parent Message 1- Entered Parent Process, Parent waiting for child to terminate \n");
 		wait(NULL);
-		printf("Parent Message - Child Completes and returns its pid = %d \n", getpid());
-		printf("Parent Message - Parent Exits \n");
+		printf("Parent Message 2- Child Completes and returns its pid = %d \n", getpid());
+		printf("Parent Message 3- Parent Exits \n");
 	}
 	
 	return 0;
