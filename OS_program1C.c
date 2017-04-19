@@ -16,14 +16,7 @@ int main()
 {
 	printf("********Project 1 - Question C******** \n");
 	pid_t pid,i;
-	//fork a child process
-	printf("fork() call - 1 \n");
-	pid = fork(); 
-	printf("fork() call - 2 \n");
-	pid = fork();
-	printf("fork() call - 3 \n");
-	pid = fork(); 
-	
+
 	
 	for(i = 0; i < 3; i++) 
 	{
