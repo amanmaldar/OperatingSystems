@@ -19,9 +19,9 @@ int main()
 	printf("********Project 1 - Question B******** \n");
 	pid_t pid;
 	//fork a child process
-	pid = fork();
-	pid = fork();
-	pid = fork();
+	pid = fork(); printf("fork() call - 1 \n");
+	pid = fork(); printf("fork() call - 2 \n");
+	pid = fork(); printf("fork() call - 3 \n");
 
 	
 	if (pid < 0) {
@@ -34,10 +34,10 @@ int main()
 		execlp("bin/ls","ls",NULL);
 	}
 	else{		//parent process
-	printf("Parent Message - Entered Parent Process, Parent waiting for child to terminate \n");
-	wait(NULL);
-	printf("Parent Message - Child Completes and returns its pid = %d \n", getpid());
-	printf("Parent Message - Parent Exits \n");
+		printf("Parent Message - Entered Parent Process, Parent waiting for child to terminate \n");
+		wait(NULL);
+		printf("Parent Message - Child Completes and returns its pid = %d \n", getpid());
+		printf("Parent Message - Parent Exits \n");
 	}
 	
 	return 0;
