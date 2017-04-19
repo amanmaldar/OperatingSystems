@@ -19,10 +19,12 @@ int main()
 	printf("********Project 1 - Question B******** \n");
 	pid_t pid;
 	//fork a child process
-	pid = fork(); printf("fork() call - 1 \n");
-	pid = fork(); printf("fork() call - 2 \n");
-	pid = fork(); printf("fork() call - 3 \n");
-
+	printf("fork() call - 1 \n");
+	pid = fork(); 
+	printf("fork() call - 2 \n");
+	pid = fork();
+	printf("fork() call - 3 \n");
+	pid = fork(); 
 	
 	if (pid < 0) {
 		fprintf(stderr, "Fork Failed \n");
