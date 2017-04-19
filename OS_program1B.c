@@ -31,8 +31,8 @@ int main()
 		return 1;
 	}
 	else if (pid == 0){		//child process 
-		printf("Child Message 1 - Entered Child Process. Do something Interesting. \n");
-		printf("Child Message 2 - Child Terminates. Fork() returns pid of child = %d to Parent \n", getpid());
+		printf("Child Message  1- Entered Child Process. Do something Interesting. \n");
+		printf("Child Message  2- Child Terminates. Fork() returns pid of child = %d to Parent \n", getpid());
 		execlp("bin/ls","ls",NULL);
 	}
 	else{		//parent process
