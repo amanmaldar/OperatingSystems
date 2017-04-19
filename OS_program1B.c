@@ -13,6 +13,7 @@ described in part A.
 #include<sys/types.h>
 #include<stdio.h>
 #include<unistd.h>
+#include<stdlib.h>
 
 int main()
 {
@@ -42,5 +43,6 @@ int main()
 		printf("Parent Message 3- Parent Exits \n");
 	}
 	
-	return 0;
+	//return 0;
+	exit(1);
 }
