@@ -20,7 +20,7 @@ int main(int argc, char *argv[] )
 
 	if (atoi(argv[1]) > 10){
 		printf("Loop count should be less than 10, exiting program \n");
-		exit(0);
+		exit(1);
 	}
 	
 	for(i = 0; i < atoi(argv[1]); i++) 
