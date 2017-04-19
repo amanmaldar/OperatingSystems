@@ -14,7 +14,7 @@ described in part A.
 #include<stdio.h>
 #include<unistd.h>
 
-main()
+int main()
 {
 	printf("********Project 1 - Question B******** \n");
 	pid_t pid;
@@ -42,5 +42,5 @@ main()
 		printf("Parent Message 3- Parent Exits \n");
 	}
 	
-	//return 0;
+	return 0;
 }
