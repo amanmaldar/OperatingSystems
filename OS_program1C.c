@@ -24,21 +24,6 @@ int main()
 	printf("fork() call - 3 \n");
 	pid = fork(); 
 	
-	if (pid < 0) {
-		fprintf(stderr, "Fork Failed \n");
-		return 1;
-	}
-	else if (pid == 0){		//child process 
-		printf("Child Message  1- Entered Child Process. Do something Interesting. \n");
-		printf("Child Message  2- Child Terminates. Fork() returns pid of child = %d to Parent \n", getpid());
-		execlp("bin/ls","ls",NULL);
-	}
-	else{		//parent process
-		printf("Parent Message 1- Entered Parent Process, Parent waiting for child to terminate \n");
-		wait(NULL);
-		printf("Parent Message 2- Child Completes and returns its pid = %d \n", getpid());
-		printf("Parent Message 3- Parent Exits \n");
-	}
 	
 	for(i = 0; i < 3; i++) 
 	{
@@ -49,16 +34,16 @@ int main()
 			return 1;
 		} 
 		else if (pid == 0){		//child process 
-			printf("Child Message  1- Entered Child Process. Do something Interesting. \n");
+			//printf("Child Message  1- Entered Child Process. Do something Interesting. \n");
 			printf("Child (%d): %d\n", i + 1, getpid());
-			printf("Child Message  2- Child Terminates. Fork() returns pid of child = %d to Parent \n", getpid());
+			//printf("Child Message  2- Child Terminates. Fork() returns pid of child = %d to Parent \n", getpid());
 			execlp("bin/ls","ls",NULL);
 		}
 		else{		//parent process
-		printf("Parent Message 1- Entered Parent Process, Parent waiting for child to terminate \n");
+		//printf("Parent Message 1- Entered Parent Process, Parent waiting for child to terminate \n");
 		wait(NULL);
-		printf("Parent Message 2- Child Completes and returns its pid = %d \n", getpid());
-		printf("Parent Message 3- Parent Exits \n");
+		//printf("Parent Message 2- Child Completes and returns its pid = %d \n", getpid());
+		//printf("Parent Message 3- Parent Exits \n");
 	}
 }
 	
