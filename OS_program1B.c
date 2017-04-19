@@ -42,6 +42,5 @@ main()
 		printf("Parent Message 3- Parent Exits \n");
 	}
 	
-	exit(0);
 	//return 0;
 }
