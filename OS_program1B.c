@@ -17,11 +17,12 @@ described in part A.
 int main()
 {
 	printf("********Project 1 - Question B******** \n");
-	pid_t pid_1,pid_2,pid_3;
+	pid_t pid;
 	//fork a child process
-	pid_1 = fork();
-	pid_2 = fork();
-	pid_3 = fork();
+	pid = fork();
+	pid = fork();
+	pid = fork();
+
 	
 	if (pid < 0) {
 		fprintf(stderr, "Fork Failed \n");
