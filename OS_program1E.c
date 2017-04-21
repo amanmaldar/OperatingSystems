@@ -35,6 +35,7 @@ int main(int argc, char *argv[] )
 			//printf("Child Message  1- Entered Child Process. Do something Interesting. \n");
 			printf("Child (%d): %d\n", i + 1, getpid());
 			//printf("Child Message  2- Child Terminates. Fork() returns pid of child = %d to Parent \n", getpid());
+			printf("Terminated Child- %d" i+1);
 			execlp("bin/ls","ls",NULL);
 		}
 		else{		//parent process
