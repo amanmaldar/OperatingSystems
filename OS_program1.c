@@ -28,7 +28,6 @@ Apart from abaove references, no code has been reused.
 #include<time.h>
 #include<stdlib.h>
 
-
 int main(int argc, char *argv[] )
 {
 	//following piece of code ensures, number of child processes entered are not greater than 25
