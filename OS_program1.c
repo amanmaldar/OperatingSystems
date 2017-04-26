@@ -80,7 +80,6 @@ int main(int argc, char *argv[] )
 	{
 		for(i = 0; i < atoi(argv[1]); i++) 
 		{
-
 			child_pid = wait(&status);
 			//using for() loop, child PIDs are compared against PIDs stored in mapping_array; to find out child number
 			//note - child numbers are same as array index. 
