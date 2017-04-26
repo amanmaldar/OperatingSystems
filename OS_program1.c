@@ -17,6 +17,7 @@ References for code -
 5) Code involves some key developments derived after Discussions with Peter (TA), RakeshKiran Musaley (OS Class collegue).
 6) Sample Executables - Provided by Dr. Geiger
    http://mjgeiger.github.io/OS/projects/OS_proj1.pdf
+7) Modulus operator - http://www.cprogramming.com/tutorial/modulus.html
 
 Apart from abaove references, no code has been reused. 
 */
@@ -32,7 +33,7 @@ int main(int argc, char *argv[] )
 {
 	//following piece of code ensures, number of child processes entered are not greater than 25
 	if (atoi(argv[1]) > 25){
-		printf("Loop count should be less than 25, exiting program \n");
+		printf("Child count should be less than 25, exiting program \n");
 		return 1;
 	}
 
@@ -71,27 +72,29 @@ int main(int argc, char *argv[] )
 			sprintf(name, "./test%d",r);
 			execlp(name,"ls",NULL);		//runs the executable
 			exit(0);			//child exits after it is completed
-		}
-		
-	}
-	// following piece of code is executed by parent only.
-	// Code checks for the exist status of all the childs using wait() call multiple times.
-	for(i = 0; i < atoi(argv[1]); i++) 
-	{
-
-		child_pid = wait(&status);
-		//using for() loop, child PIDs are compared against PIDs stored in mapping_array; to find out child number
-		//note - child numbers are same as array index. 
-		for (j =1 ; j <= atoi(argv[1]); j++)
-		{
-			if (mapping_array[j] == child_pid)
-			{
-				child_number = 	j;				
-				break;					
-			}
-		}
-		printf("Parent Message - Child (%d) | (PID %d) finished \n",child_number,child_pid);
+		}		
 	}
 	
+	// following piece of code is executed by parent only.
+	// Code checks for the exist status of all the childs using wait() call multiple times.
+	if (pid > 0)
+	{
+		for(i = 0; i < atoi(argv[1]); i++) 
+		{
+
+			child_pid = wait(&status);
+			//using for() loop, child PIDs are compared against PIDs stored in mapping_array; to find out child number
+			//note - child numbers are same as array index. 
+			for (j =1 ; j <= atoi(argv[1]); j++)
+			{
+				if (mapping_array[j] == child_pid)
+				{
+					child_number = 	j;				
+					break;					
+				}
+			}
+			printf("Parent Message - Child (%d) | (PID %d) finished \n",child_number,child_pid);
+		}
+	}
 	return 0;
 }
