@@ -36,21 +36,23 @@ int main(int argc, char *argv[] )
 		return 1;
 	}
 
-	printf("********Project 1 - Question F******** \n");
+	printf("********Project 1 - Operating Systems******** \n");
 	pid_t pid,i,child_pid,master_pid;
 	int status,j,child_number,r;
-	int size = atoi(argv[1]);
-	int mapping_array[size];
-	char name[10];
+	int size = atoi(argv[1]);	//array size is based on number of children requested by user
+	int mapping_array[size];	//stores the mapping of child number(as an index value) and child pid
+	char name[10];			//used to store name of executables
 
-	master_pid = getpid();
+	master_pid = getpid();		//master_pid is stored in the beginning to associate forking capabilities with parent only in subsequest fork() in loop 
+	printf("Parent PID is %d \n",master_pid);
+	//create multiple child using for loop
 	for(i = 0; i < atoi(argv[1]); i++) 
 	{
+		//only parent is allowed to fork(). If condition ensures, fork() occurs only if parent is executing.
 		if(master_pid == getpid())
 		{		
 			pid = fork();
-			mapping_array[i+1] = pid;
-			//j++;
+			mapping_array[i+1] = pid;	//store ID of a child in the mapping_array at corresponding 'child_number' location
 		}
 
 		if(pid < 0) {
@@ -59,23 +61,27 @@ int main(int argc, char *argv[] )
 		} 
 		else if (pid == 0){		//child process 
 
-			printf("Child (%d) : created %d \n", i + 1, getpid());
-			//mapping_array[i+1] = getpid();
-			//printf("Mapping array is (%d)  \n",mapping_array[i+1]);
+			printf("Started Child (%d) with PID %d \n", i + 1, getpid());
+			//put the child process to sleep to ensure all the children are created before first child completes.
 			sleep(1);
+			//decide which program to execute by child. I have used mod(5) function.
+			//child 1 runs test1, child 2 runs test2 and so on..
 			r = (i+1) % 5;
 			if (r == 0) {r =5;}
 			sprintf(name, "./test%d",r);
-			execlp(name,"ls",NULL);
-			exit(0);
+			execlp(name,"ls",NULL);		//runs the executable
+			exit(0);			//child exits after it is completed
 		}
 		
 	}
+	// following piece of code is executed by parent only.
+	// Code checks for the exist status of all the childs using wait() call multiple times.
 	for(i = 0; i < atoi(argv[1]); i++) 
 	{
 
 		child_pid = wait(&status);
-
+		//using for() loop, child PIDs are compared against PIDs stored in mapping_array; to find out child number
+		//note - child numbers are same as array index. 
 		for (j =1 ; j <= atoi(argv[1]); j++)
 		{
 			if (mapping_array[j] == child_pid)
@@ -84,9 +90,7 @@ int main(int argc, char *argv[] )
 				break;					
 			}
 		}
-		printf("Parent know child_id (%d) | child_number (%d) is finished     \n",child_pid,child_number);
-		//printf("Mapping array is (%d)  \n",mapping_array[i+1]);
-	
+		printf("Parent Message - Child (%d) | (PID %d) finished \n",child_number,child_pid);
 	}
 	
 	return 0;
